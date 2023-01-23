@@ -1,28 +1,19 @@
-// import Input from "./Input";
-import { useState } from "react";
+
 import { v4 as uuid } from "uuid";
 import Input from "./Input";
 
-
+/** renders the Form element and populates with Input components
+ *  from formData
+ *
+ * props: wordsArray
+ *        formData
+ *        handleSave() - fn to change the state of the Story component
+ *
+ * state: none
+ */
 function Form({ wordsArray, handleSave, formData }) {
 
-  // const initialFormData = wordsArray.reduce((obj, word) => Object.assign(obj, { [word.type]: word.disp }));
-  const initialFormData = wordsArray.reduce((obj, word) => ({ ...obj, [word.type]: word.disp }));
-  console.log("intialFormData-", initialFormData);
-  // const [formData, setFormData] = useState(initialFormData);
-  // const [inputFields, setInputFields] = useState(initialFormData);
-
-  // function handleChange(evt) {
-  //   // const { name, value } = evt.target;
-  //   // setFormData(formData => ({
-  //   //   ...formData,
-  //   //   [name]: value,
-  //   // }));
-  // }
-
-
-  // console.log("formData -", formData);
-
+  /** formats the form data and calls the handleSave function */
   function handleSubmit(evt) {
     evt.preventDefault();
 
@@ -31,9 +22,9 @@ function Form({ wordsArray, handleSave, formData }) {
     }
 
     handleSave(formData);
-    // setFormData(initialFormData);
+
   }
-  console.log("wordsArray-", wordsArray);
+
   return (
     <form onSubmit={handleSubmit}>
       {wordsArray.map(word => <Input word={word} key={uuid()} />)}

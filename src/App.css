@@ -1,6 +1,4 @@
-.App {
-  /* text-align: center; */
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -41,22 +39,18 @@ form{
   width: 250px;
   margin-right: auto;
   margin-left: auto;
-  border: 2px red solid;
+
 }
 label {
   border: 1px black solid;
   float:left;
   margin-right: 20px;
 }
-input{
-  /* float: right; */
-  /* display: inline-block; */
-}
+
 .submit{
   text-align: center;
 }
 .story-div {
-  border: 1px red solid;
   text-align: center;
 }
 

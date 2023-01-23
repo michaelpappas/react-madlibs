@@ -1,10 +1,16 @@
 import { useState } from "react";
 
-
-function Form(wordType, handleChange, formData) {
+/** renders the individual input elements with word and updates input value
+ *
+ * props: word
+ *
+ * state: inputField
+ */
+function Form(word) {
   // console.log("wordtype.word.disp-", wordType.word.disp);
-  const [inputField, setInputField] = useState(wordType.word.type);
-  console.log("inputField-", inputField);
+  const [inputField, setInputField] = useState(word.word.type);
+
+  /** uptdates the input field data when a change happens in that field */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setInputField(formData => ({
@@ -12,17 +18,17 @@ function Form(wordType, handleChange, formData) {
       [name]: value,
     }));
   }
-  // console.log("inputField-", inputField);
+
 
   return (
-    <div ><label htmlFor={wordType.word.type}>{wordType.word.disp}</label>
+    <div ><label htmlFor={word.word.type}>{word.word.disp}</label>
       <input
-        id={wordType.word.type}
-        name={wordType.word.type}
+        id={word.word.type}
+        name={word.word.type}
         className="form-control"
-        placeholder={wordType.word.type}
+        placeholder={word.word.type}
         onChange={handleChange}
-        aria-label={wordType.word.type}
+        aria-label={word.word.type}
         value={inputField.value}
 
       />
